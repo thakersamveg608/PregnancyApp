@@ -1,18 +1,75 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
+<RelativeLayout android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".HomeActivity">
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="#000000">
 
-    <TextView
+    <android.support.v7.widget.CardView
+        android:id="@+id/cvQuestion"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:minHeight="@dimen/margin_200"
+        android:layout_marginTop="@dimen/margin_90"
+        android:layout_marginLeft="@dimen/margin_16"
+        android:layout_marginRight="@dimen/margin_16"
+        android:layout_centerHorizontal="true"
+        app:cardElevation="@dimen/margin_2"
+        app:cardCornerRadius="@dimen/margin_4">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="@dimen/margin_16">
+
+            <TextView
+                android:id="@+id/timer"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#000000"
+                android:layout_marginRight="@dimen/margin_16"
+                android:layout_marginTop="@dimen/margin_8"
+                android:layout_alignParentRight="true"
+                android:textSize="24sp"
+                android:text="00:30"/>
+
+            <TextView
+                android:id="@+id/tvQuestion"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_100"
+                android:layout_marginLeft="@dimen/margin_16"
+                android:layout_marginRight="@dimen/margin_16"
+                android:layout_centerHorizontal="true"
+                android:gravity="center"
+                android:fontFamily="@font/raleway_medium"
+                android:textSize="@dimen/margin_16"
+                android:text="Identify the logo and guess the brand?Identify the logo and guess the brand?Identify the logo and guess the brand?Identify the logo and guess the brand?"/>
+
+
+        </RelativeLayout>
+
+    </android.support.v7.widget.CardView>
+
+    <android.support.v7.widget.CardView
+        android:id="@+id/cvQuestionImage"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:layout_marginTop="@dimen/margin_20"
+        android:layout_centerHorizontal="true"
+        app:cardCornerRadius="@dimen/margin_80"
+        app:cardElevation="@dimen/margin_4"
+        app:cardBackgroundColor="@android:color/transparent">
 
-</android.support.constraint.ConstraintLayout>
+
+            <ImageView
+                android:id="@+id/ivQuestion"
+                android:layout_width="@dimen/margin_150"
+                android:layout_height="@dimen/margin_150"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"/>
+
+    </android.support.v7.widget.CardView>
+
+
+</RelativeLayout>
