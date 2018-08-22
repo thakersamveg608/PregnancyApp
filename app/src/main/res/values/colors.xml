@@ -8,6 +8,7 @@
     <color name="black">#000000</color>
     <color name="pink_low">#f48fb1</color>
     <color name="pink_high">#ba2d65</color>
+    <color name="white_medium">#99ffffff</color>
 
 
 </resources>
