@@ -102,11 +102,12 @@
         </android.support.design.widget.TextInputLayout>
 
         <Button
+            android:id="@+id/btn_register"
             android:layout_width="150dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="30dp"
-            android:text="@string/submit"
+            android:text="@string/register"
             android:textColor="@color/white"
             android:fontFamily="@font/raleway_bold"
             android:textSize="15sp"

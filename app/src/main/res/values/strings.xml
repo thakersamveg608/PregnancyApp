@@ -1,9 +1,16 @@
 <resources>
     <string name="app_name">PregnancyApp</string>
-
+    <string name="google_maps_api_key">AIzaSyACuVgELo16hDhRJt32gEAsfBr7QdfIMXA</string>
     <string name="hint_aadhar_id">Aadhar ID</string>
     <string name="hint_mobile">Mobile Number</string>
     <string name="hint_password">Password</string>
     <string name="hint_retype_password">Retype Password</string>
-    <string name="submit">SUBMIT</string>
+    <string name="login">Login</string>
+    <string name="forgot_password">Forgot Password?</string>
+    <string name="new_user">New User?</string>
+    <string name="register">REGISTER</string>
+    <string name="err_field_empty">This field cannot be empty</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
