@@ -6,7 +6,6 @@ import android.app.Dialog;
 import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.v4.app.DialogFragment;
-import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -32,27 +31,26 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 
-public class HospitalFragment extends DialogFragment implements OnMapReadyCallback, DatePickerDialog.OnDateSetListener {
-
+public class BloodBankFragment extends DialogFragment implements OnMapReadyCallback, DatePickerDialog.OnDateSetListener{
     private Button selectDate, btnSubmit;
     private TextView userDate;
     private LinearLayout llDate;
-    private Spinner spinnerHospital, spinnerTimeSlot;
-    private MapView mapViewHospitals;
+    private Spinner spinnerBloodBank, spinnerBloodGroup;
+    private MapView mapViewBloodBank;
     private GoogleMap gmap;
-    private String hospital, timeSlot;
-    private boolean isHospitalSelected = false, isTimeSlotSelected = false, isDateSelected = false;
+    private String bloodBank, bloodGroup;
+    private boolean isBloodBankSelected = false, isBloodGroupSelected = false, isDateSelected = false;
 
-    public HospitalFragment() {
+    public BloodBankFragment() {
         // Required empty public constructor
     }
-
-    public static HospitalFragment newInstance() {
-        HospitalFragment fragment = new HospitalFragment();
+    public static BloodBankFragment newInstance() {
+        BloodBankFragment fragment = new BloodBankFragment();
         Bundle args = new Bundle();
         fragment.setArguments(args);
         return fragment;
     }
+
 
     @Override
     public void onStart() {
@@ -71,7 +69,6 @@ public class HospitalFragment extends DialogFragment implements OnMapReadyCallba
         getDialog().getWindow().getAttributes().windowAnimations = R.style.DialogAnimation;
     }
 
-
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -81,10 +78,12 @@ public class HospitalFragment extends DialogFragment implements OnMapReadyCallba
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_hospital, container, false);
+        // Inflate the layout for this fragment
+        View view = inflater.inflate(R.layout.fragment_blood_bank, container, false);
+
         initialize(view);
-        mapViewHospitals.onCreate(savedInstanceState);
-        mapViewHospitals.getMapAsync(this);
+        mapViewBloodBank.onCreate(savedInstanceState);
+        mapViewBloodBank.getMapAsync(this);
         Calendar calendar = Calendar.getInstance();
         final int currentDay = calendar.get(Calendar.DAY_OF_MONTH);
         final int currentMonth = calendar.get(Calendar.MONTH);
@@ -93,7 +92,7 @@ public class HospitalFragment extends DialogFragment implements OnMapReadyCallba
         selectDate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                DatePickerDialog dialog = new DatePickerDialog(getContext(), AlertDialog.THEME_DEVICE_DEFAULT_DARK, HospitalFragment.this, currentYear, currentMonth, currentDay);
+                DatePickerDialog dialog = new DatePickerDialog(getContext(), AlertDialog.THEME_DEVICE_DEFAULT_DARK,BloodBankFragment.this,currentYear,currentMonth,currentDay);
                 dialog.show();
             }
         });
@@ -112,73 +111,77 @@ public class HospitalFragment extends DialogFragment implements OnMapReadyCallba
         llDate = view.findViewById(R.id.ll_date);
         selectDate = view.findViewById(R.id.btnDate);
         userDate = view.findViewById(R.id.dateUser);
-        mapViewHospitals = view.findViewById(R.id.map_view_hospitals);
-        spinnerHospital = view.findViewById(R.id.hospital_list);
-        spinnerTimeSlot = view.findViewById(R.id.time_slot_list);
-        btnSubmit = view.findViewById(R.id.hospital_fragment_submit);
+        mapViewBloodBank = view.findViewById(R.id.map_view_blood_bank);
+        spinnerBloodBank = view.findViewById(R.id.blood_bank_list);
+        spinnerBloodGroup = view.findViewById(R.id.blood_group_list);
+        btnSubmit = view.findViewById(R.id.blood_bank_fragment_submit);
     }
 
     private void setSpinner() {
-        List<String> hospitalList = new ArrayList<>();
-        hospitalList.add("Hospital 1");
-        hospitalList.add("Hospital 2");
-        hospitalList.add("Hospital 3");
-        hospitalList.add("Hospital 4");
-        hospitalList.add("Hospital 5");
+        List<String> bloodBankList = new ArrayList<>();
+        bloodBankList.add("Blood Bank 1");
+        bloodBankList.add("Blood Bank 2");
+        bloodBankList.add("Blood Bank 3");
+        bloodBankList.add("Blood Bank 4");
+        bloodBankList.add("Blood Bank 5");
 
-        List<String> timeSlotList = new ArrayList<>();
-        timeSlotList.add("9am - 11am");
-        timeSlotList.add("11am - 1pm");
-        timeSlotList.add("3pm - 5pm");
-        timeSlotList.add("6pm - 8pm");
+        List<String> blooGroupList = new ArrayList<>();
+        blooGroupList.add("A +ve");
+        blooGroupList.add("A -ve");
+        blooGroupList.add("B +ve");
+        blooGroupList.add("B -ve");
+        blooGroupList.add("AB +ve");
+        blooGroupList.add("AB -ve");
+        blooGroupList.add("O +ve");
+        blooGroupList.add("O -ve");
 
         ArrayAdapter<String> dataAdapterHospital = new ArrayAdapter<String>(getContext(),
-                R.layout.spinner_item, hospitalList);
+                R.layout.spinner_item, bloodBankList);
         dataAdapterHospital.setDropDownViewResource(R.layout.spinner_dropdown_item);
-        spinnerHospital.setAdapter(dataAdapterHospital);
+        spinnerBloodBank.setAdapter(dataAdapterHospital);
 
-        spinnerHospital.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+        spinnerBloodBank.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                isHospitalSelected = true;
-                hospital = parent.getItemAtPosition(position).toString().trim();
+                isBloodBankSelected = true;
+                bloodBank = parent.getItemAtPosition(position).toString().trim();
             }
 
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
-                isHospitalSelected = false;
+                isBloodBankSelected = false;
             }
         });
 
         ArrayAdapter<String> dataAdapterTime = new ArrayAdapter<String>(getContext(),
-                R.layout.spinner_item, timeSlotList);
+                R.layout.spinner_item, blooGroupList);
         dataAdapterTime.setDropDownViewResource(R.layout.spinner_dropdown_item);
-        spinnerTimeSlot.setAdapter(dataAdapterTime);
+        spinnerBloodGroup.setAdapter(dataAdapterTime);
 
-        spinnerTimeSlot.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+        spinnerBloodGroup.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                isTimeSlotSelected = true;
-                timeSlot = parent.getItemAtPosition(position).toString().trim();
+                isBloodGroupSelected = true;
+                bloodGroup = parent.getItemAtPosition(position).toString().trim();
             }
 
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
-                isTimeSlotSelected = false;
+                isBloodGroupSelected = false;
             }
         });
     }
-
     private void confirmation() {
-        if (!isDateSelected) {
+        if (!isDateSelected){
             Toast.makeText(getContext(), "Please select the Date", Toast.LENGTH_LONG).show();
-        } else if (!isHospitalSelected) {
-            Toast.makeText(getContext(), "Please select the hospital", Toast.LENGTH_LONG).show();
-        } else if (!isTimeSlotSelected) {
-            Toast.makeText(getContext(), "Please select the time slot", Toast.LENGTH_LONG).show();
-        } else {
+        }
+        else if (!isBloodBankSelected){
+            Toast.makeText(getContext(), "Please select the blood bank", Toast.LENGTH_LONG).show();
+        }else if (!isBloodGroupSelected) {
+            Toast.makeText(getContext(), "Please select the blood group", Toast.LENGTH_LONG).show();
+        }else {
             final AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
-            builder.setMessage("You have been alloted an appointment on " + userDate.getText().toString().trim() + " from " + timeSlot + " at " + hospital)
+            builder.setMessage("You have been alloted an appointment on " + userDate.getText().toString().trim() + " for the blood group " + bloodGroup + " at " + bloodBank)
                     .setCancelable(false)
                     .setPositiveButton("OK", new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog, int id) {
@@ -207,14 +210,14 @@ public class HospitalFragment extends DialogFragment implements OnMapReadyCallba
         markerOptions.position(ny);
         gmap.addMarker(markerOptions).showInfoWindow();
         gmap.moveCamera(CameraUpdateFactory.newLatLng(ny));
-        mapViewHospitals.onResume();
+        mapViewBloodBank.onResume();
     }
 
     @Override
     public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
         llDate.setVisibility(View.VISIBLE);
         isDateSelected = true;
-        userDate.setText(String.valueOf(dayOfMonth) + "/" + String.valueOf(month + 1) + "/" + String.valueOf(year));
+        userDate.setText(String.valueOf(dayOfMonth) + "/" + String.valueOf(month+1) + "/" + String.valueOf(year));
     }
 
 }
