@@ -17,7 +17,7 @@ import com.competiton.pregnancy.pregnancyapp.fragments.ShoppingFragment;
 public class HomeActivity extends AppCompatActivity implements View.OnClickListener {
 
     private ImageView ivHealthCentre, ivCustomerImage;
-    private CardView cvShop, cvCustomerCare;
+    private CardView cvShop, cvCustomerCare, cvInfo, cvImage;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,6 +54,10 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.cvCustomerCare:
                 Intent i = new Intent(Intent.ACTION_DIAL, Uri.parse("tel:" + "+919893302615"));
                 startActivity(i);
+                break;
+            case R.id.cvImage:
+                break;
+            case R.id.cvInfo:
                 break;
         }
     }
