@@ -42,6 +42,7 @@ public class DrugStoreAdapter extends RecyclerView.Adapter<DrugStoreAdapter.View
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         final DrugStoreDetail drugStoreDetailItem = drugStoreDetailList.get(position);
         holder.tvItemDrugStore.setText(drugStoreDetailItem.getDrugName());
+        holder.tvItemDrugStorePrice.setText(drugStoreDetailItem.getDrugPrice());
         Glide.with(context).load(drugStoreDetailItem.getDrugImage()).into(holder.ivItemDrugStore);
     }
 
@@ -53,12 +54,13 @@ public class DrugStoreAdapter extends RecyclerView.Adapter<DrugStoreAdapter.View
     public class ViewHolder extends RecyclerView.ViewHolder {
 
         ImageView ivItemDrugStore;
-        TextView tvItemDrugStore;
+        TextView tvItemDrugStore, tvItemDrugStorePrice;
 
         public ViewHolder(View itemView) {
             super(itemView);
             ivItemDrugStore = itemView.findViewById(R.id.ivItemDrugStore);
             tvItemDrugStore = itemView.findViewById(R.id.tvItemDrugStore);
+            tvItemDrugStorePrice = itemView.findViewById(R.id.tvItemDrugStorePrice);
         }
     }
 

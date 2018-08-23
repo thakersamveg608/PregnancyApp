@@ -2,26 +2,24 @@ package com.competiton.pregnancy.pregnancyapp.model;
 
 public class DrugStoreDetail  {
 
-    private String drugName, drugImage;
+    private String drugName, drugPrice;
+    private int drugImage;
 
-    public DrugStoreDetail(String drugName, String drugImage) {
+    public DrugStoreDetail(String drugName, int drugImage, String drugPrice) {
         this.drugName = drugName;
         this.drugImage = drugImage;
+        this.drugPrice = drugPrice;
     }
 
     public String getDrugName() {
         return drugName;
     }
 
-    public void setDrugName(String drugName) {
-        this.drugName = drugName;
-    }
-
-    public String getDrugImage() {
+    public int getDrugImage() {
         return drugImage;
     }
 
-    public void setDrugImage(String drugImage) {
-        this.drugImage = drugImage;
+    public String getDrugPrice() {
+        return drugPrice;
     }
 }
