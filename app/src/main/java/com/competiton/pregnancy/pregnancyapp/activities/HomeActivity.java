@@ -12,21 +12,29 @@ import android.widget.ImageView;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
 import com.competiton.pregnancy.pregnancyapp.R;
+import com.competiton.pregnancy.pregnancyapp.fragments.ProfileFragment;
 import com.competiton.pregnancy.pregnancyapp.fragments.ShoppingFragment;
 import com.competiton.pregnancy.pregnancyapp.utils.SharedPrefs;
 
 public class HomeActivity extends AppCompatActivity implements View.OnClickListener {
 
     private ImageView ivHealthCentre, ivCustomerImage;
-    private CardView cvShop, cvCustomerCare;
+    private CardView cvShop, cvCustomerCare, cvInfo, cvImage;
     private SharedPrefs sharedPrefs;
+    FragmentManager fm = getSupportFragmentManager();
+    ProfileFragment profileFragment = ProfileFragment.newInstance();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
         sharedPrefs = new SharedPrefs(this);
-        if (!sharedPrefs.isLoggedIn()){
+        if(!sharedPrefs.isLanguageSelected()){
+            Intent i = new Intent(HomeActivity.this, SplashActivity.class);
+            startActivity(i);
+            finish();
+        }
+        else if (!sharedPrefs.isLoggedIn()){
             Intent i = new Intent(HomeActivity.this, LoginActivity.class);
             startActivity(i);
             finish();
@@ -39,12 +47,16 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
         ivCustomerImage = findViewById(R.id.ivCustomerImage);
         cvShop = findViewById(R.id.cvShop);
         cvCustomerCare = findViewById(R.id.cvCustomerCare);
+        cvInfo = findViewById(R.id.cvInfo);
+        cvImage = findViewById(R.id.cvImage);
 
         Glide.with(this).load(R.drawable.health_centre).apply(RequestOptions.circleCropTransform()).into(ivHealthCentre);
         Glide.with(this).load(R.drawable.ic_profile_image).apply(RequestOptions.circleCropTransform()).into(ivCustomerImage);
         ivHealthCentre.setOnClickListener(this);
         cvShop.setOnClickListener(this);
         cvCustomerCare.setOnClickListener(this);
+        cvImage.setOnClickListener(this);
+        cvInfo.setOnClickListener(this);
     }
 
     @Override
@@ -55,13 +67,18 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
                 startActivity(intent);
                 break;
             case R.id.cvShop:
-                FragmentManager fm = getSupportFragmentManager();
                 ShoppingFragment shoppingFragment = ShoppingFragment.newInstance();
-                shoppingFragment.show(fm, "Hospital Fragment");
+                shoppingFragment.show(fm, "Shopping Fragment");
                 break;
             case R.id.cvCustomerCare:
                 Intent i = new Intent(Intent.ACTION_DIAL, Uri.parse("tel:" + "+919893302615"));
                 startActivity(i);
+                break;
+            case R.id.cvImage:
+                profileFragment.show(fm, "Profile Fragment");
+                break;
+            case R.id.cvInfo:
+                profileFragment.show(fm, "Profile Fragment");
                 break;
         }
     }
