@@ -13,8 +13,10 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".activities.RegisterActivity" />
-        <activity android:name=".activities.LoginActivity">
+        <activity android:name=".activities.RegisterActivity"
+            android:screenOrientation="nosensor"/>
+        <activity android:name=".activities.LoginActivity"
+            android:screenOrientation="nosensor">
 
         </activity>
 
@@ -22,8 +24,12 @@
             android:name="com.google.android.geo.API_KEY"
             android:value="@string/google_maps_api_key" />
 
-        <activity android:name=".activities.HealthCentreActivity"></activity>
-        <activity android:name=".activities.HomeActivity">
+        <activity android:name=".activities.HealthCentreActivity"
+            android:screenOrientation="nosensor">
+
+        </activity>
+        <activity android:name=".activities.HomeActivity"
+            android:screenOrientation="nosensor">
 
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -31,8 +37,12 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".activities.SplashActivity" />
-        <activity android:name=".activities.OtpActivity"></activity>
+        <activity android:name=".activities.SplashActivity"
+            android:screenOrientation="nosensor"/>
+        <activity android:name=".activities.OtpActivity"
+            android:screenOrientation="nosensor">
+
+        </activity>
     </application>
 
 </manifest>
