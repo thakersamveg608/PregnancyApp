@@ -15,7 +15,8 @@
     <string name="select_date">Select Date</string>
     <string name="your_date">Your Date : </string>
     <string name="select_slot">Select Slot</string>
+    <string name="select_blood_bank">Select Blood Bank</string>
+    <string name="select_blood_group">Select Blood Group</string>
+    <string name="select_drug_store">Select Drug Store</string>
 
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

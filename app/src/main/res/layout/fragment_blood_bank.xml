@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/gradient_registration"
+    android:fillViewport="true"
+    tools:context=".fragments.BloodBankFragment">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <android.support.design.widget.AppBarLayout
+            android:id="@+id/app_bar_blood_bank"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true">
+
+            <android.support.v7.widget.Toolbar
+                android:id="@+id/blood_bank_toolbar"
+                style="@style/HeaderBar"
+                android:layout_width="match_parent"
+                android:layout_height="56dp">
+
+            </android.support.v7.widget.Toolbar>
+
+
+        </android.support.design.widget.AppBarLayout>
+
+        <com.google.android.gms.maps.MapView
+            android:id="@+id/map_view_blood_bank"
+            android:layout_width="match_parent"
+            android:layout_below="@+id/app_bar_blood_bank"
+            android:layout_height="220dp">
+
+        </com.google.android.gms.maps.MapView>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginTop="16dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:layout_below="@+id/map_view_blood_bank">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black"
+                android:fontFamily="@font/raleway_medium"
+                android:text="@string/select_blood_bank"
+                android:textSize="16sp"/>
+
+            <RelativeLayout
+                android:id="@+id/blood_bank_layout_spinner"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/spinner_bg"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="10dp">
+
+                <Spinner
+                    android:id="@+id/blood_bank_list"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginRight="8dp"
+                    android:layout_marginBottom="5dp"
+                    android:popupBackground="@color/white">
+
+                </Spinner>
+
+            </RelativeLayout>
+
+            <Button
+                android:id="@+id/btnDate"
+                android:layout_width="120dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:background="@color/pink_high"
+                android:text="@string/select_date"
+                android:layout_marginTop="16dp"
+                android:textColor="@color/white"/>
+
+            <LinearLayout
+                android:id="@+id/ll_date"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="16dp"
+                android:visibility="gone">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/black"
+                    android:fontFamily="@font/raleway_medium"
+                    android:text="@string/your_date"
+                    android:textSize="16sp"/>
+
+                <TextView
+                    android:id="@+id/dateUser"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/black"
+                    android:fontFamily="@font/raleway_medium"
+                    android:layout_marginStart="8dp"
+                    android:textSize="16sp"/>
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black"
+                android:fontFamily="@font/raleway_medium"
+                android:text="@string/select_blood_group"
+                android:layout_marginTop="16dp"
+                android:textSize="16sp"/>
+
+            <RelativeLayout
+                android:id="@+id/blod_group_layout_spinner"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/spinner_bg"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="10dp">
+
+                <Spinner
+                    android:id="@+id/blood_group_list"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginRight="8dp"
+                    android:layout_marginBottom="5dp"
+                    android:popupBackground="@color/white">
+
+                </Spinner>
+
+            </RelativeLayout>
+
+        </LinearLayout>
+        <Button
+            android:id="@+id/blood_bank_fragment_submit"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="16dp"
+            android:layout_centerHorizontal="true"
+            android:text="@string/submit"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            android:background="@drawable/button_rounded_corner"/>
+
+    </RelativeLayout>
+
+</ScrollView>

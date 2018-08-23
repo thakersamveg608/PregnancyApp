@@ -40,11 +40,12 @@ public class DatabaseHelperUser extends SQLiteOpenHelper{
         db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
 
-        String query = "select * from contacts";
+        String query = "select * from user";
         Cursor cursor = db.rawQuery(query, null);
         int count = cursor.getCount();
 
         values.put(COLUMN_ID, count);
+        values.put(COLUMN_AADHAAR, c.getAadhaarId());
         values.put(COLUMN_MOBILE,c.getMobile());
         values.put(COLUMN_PASSWORD, c.getPassword());
 
