@@ -1,5 +1,6 @@
 package com.competiton.pregnancy.pregnancyapp.activities;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.support.design.widget.TextInputLayout;
 import android.support.v7.app.AppCompatActivity;
@@ -8,11 +9,14 @@ import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.View;
 import android.view.WindowManager;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.bumptech.glide.Glide;
 import com.competiton.pregnancy.pregnancyapp.R;
 import com.competiton.pregnancy.pregnancyapp.database.DatabaseHelperUser;
 import com.google.android.gms.common.GooglePlayServicesNotAvailableException;
@@ -27,7 +31,7 @@ public class LoginActivity extends AppCompatActivity {
     private String mobile, password, valPassword;
     private Button btnLogin;
     private TextView newUser;
-    private final static int PLACE_PICKER_REQUEST = 999;
+    private ImageView logo;
     DatabaseHelperUser databaseHelperUser = new DatabaseHelperUser(this);
 
     @Override
@@ -38,10 +42,12 @@ public class LoginActivity extends AppCompatActivity {
 
         inputLoginMobile.addTextChangedListener(new MyTextWatcher(inputLoginMobile));
         inputLoginPassword.addTextChangedListener(new MyTextWatcher(inputLoginPassword));
+        Glide.with(this).load(R.drawable.pregacarelogo1).into(logo);
 
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                hideSoftKeyboard(LoginActivity.this);
                 submit();
             }
         });
@@ -64,6 +70,7 @@ public class LoginActivity extends AppCompatActivity {
         inputLoginPassword = (EditText) findViewById(R.id.input_login_password);
         btnLogin = (Button) findViewById(R.id.btn_login);
         newUser = (TextView) findViewById(R.id.new_user);
+        logo = findViewById(R.id.logo_login);
     }
 
     public void submit(){
@@ -147,15 +154,12 @@ public class LoginActivity extends AppCompatActivity {
         }
     }
 
-    @Override
-    public void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-        if (requestCode == PLACE_PICKER_REQUEST) {
-            if (resultCode == RESULT_OK) {
-                Place place = PlacePicker.getPlace(data, this);
-                String toastMsg = String.format("Place: %s", place.getName());
-                Toast.makeText(this, toastMsg, Toast.LENGTH_LONG).show();
-            }
-        }
+    public static void hideSoftKeyboard(Activity activity) {
+        InputMethodManager inputMethodManager =
+                (InputMethodManager) activity.getSystemService(
+                        Activity.INPUT_METHOD_SERVICE);
+        inputMethodManager.hideSoftInputFromWindow(
+                activity.getCurrentFocus().getWindowToken(), 0);
     }
+
 }

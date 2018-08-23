@@ -30,17 +30,17 @@
                 android:layout_height="match_parent">
 
                 <ImageView
-                    android:id="@+id/ivItemDrugStore"
+                    android:id="@+id/ivItem"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_gravity="center"
-                    android:layout_marginTop="6dp"
+                    android:layout_margin="0dp"
                     android:scaleType="fitCenter" />
             </RelativeLayout>
         </FrameLayout>
 
         <TextView
-            android:id="@+id/tvItemDrugStore"
+            android:id="@+id/tvItem"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"

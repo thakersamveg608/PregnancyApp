@@ -2,6 +2,7 @@ package com.competiton.pregnancy.pregnancyapp.activities;
 
 import android.content.Intent;
 import android.net.Uri;
+import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.CardView;
@@ -11,6 +12,7 @@ import android.widget.ImageView;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
 import com.competiton.pregnancy.pregnancyapp.R;
+import com.competiton.pregnancy.pregnancyapp.fragments.ShoppingFragment;
 
 public class HomeActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -45,6 +47,9 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
                 startActivity(intent);
                 break;
             case R.id.cvShop:
+                FragmentManager fm = getSupportFragmentManager();
+                ShoppingFragment shoppingFragment = ShoppingFragment.newInstance();
+                shoppingFragment.show(fm, "Hospital Fragment");
                 break;
             case R.id.cvCustomerCare:
                 Intent i = new Intent(Intent.ACTION_DIAL, Uri.parse("tel:" + "+919893302615"));

@@ -10,6 +10,7 @@ import android.widget.ImageView;
 
 import com.bumptech.glide.Glide;
 import com.competiton.pregnancy.pregnancyapp.R;
+import com.competiton.pregnancy.pregnancyapp.adapter.DrugStoreFragment;
 import com.competiton.pregnancy.pregnancyapp.fragments.BloodBankFragment;
 import com.competiton.pregnancy.pregnancyapp.fragments.HospitalFragment;
 
@@ -45,7 +46,9 @@ public class HealthCentreActivity extends AppCompatActivity {
         cvDrugStore.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                FragmentManager fm = getSupportFragmentManager();
+                DrugStoreFragment drugStoreFragment = DrugStoreFragment.newInstance();
+                drugStoreFragment.show(fm , "DrugStore Fragment");
             }
         });
     }

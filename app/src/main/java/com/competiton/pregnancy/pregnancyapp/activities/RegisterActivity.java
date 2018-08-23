@@ -1,5 +1,6 @@
 package com.competiton.pregnancy.pregnancyapp.activities;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.support.design.widget.TextInputLayout;
 import android.support.v7.app.AppCompatActivity;
@@ -8,10 +9,13 @@ import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.View;
 import android.view.WindowManager;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.bumptech.glide.Glide;
 import com.competiton.pregnancy.pregnancyapp.R;
 import com.competiton.pregnancy.pregnancyapp.database.DatabaseHelperUser;
 import com.competiton.pregnancy.pregnancyapp.database.UserDb;
@@ -22,6 +26,7 @@ public class RegisterActivity extends AppCompatActivity {
     private TextInputLayout inputLayoutSignAadhar, inputLayoutSignMobile, inputLayoutSignPassword, inputLayoutSignRetypePassword;
     private Button btnRegister;
     private String aadhaar,mobile,password,retypePassword;
+    private ImageView logo;
     DatabaseHelperUser databaseHelperUser = new DatabaseHelperUser(this);
 
     @Override
@@ -33,10 +38,11 @@ public class RegisterActivity extends AppCompatActivity {
         inputSignMobile.addTextChangedListener(new MyTextWatcher(inputSignMobile));
         inputSignPassword.addTextChangedListener(new MyTextWatcher(inputSignPassword));
         inputSignRetypePassword.addTextChangedListener(new MyTextWatcher(inputSignRetypePassword));
-
+        Glide.with(this).load(R.drawable.pregacarelogo1).into(logo);
         btnRegister.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                hideSoftKeyboard(RegisterActivity.this);
                 submit();
             }
         });
@@ -52,6 +58,7 @@ public class RegisterActivity extends AppCompatActivity {
         inputSignPassword = (EditText) findViewById(R.id.input_register_password);
         inputSignRetypePassword = (EditText) findViewById(R.id.input_confirm_password);
         btnRegister = (Button) findViewById(R.id.btn_register);
+        logo = findViewById(R.id.logo_register);
     }
 
 
@@ -75,7 +82,7 @@ public class RegisterActivity extends AppCompatActivity {
         userDb.setPassword(password);
 
         databaseHelperUser.insertUser(userDb);
-        Intent i = new Intent(RegisterActivity.this,LoginActivity.class);
+        Intent i = new Intent(RegisterActivity.this,OtpActivity.class);
         startActivity(i);
         finish();
     }
@@ -86,7 +93,11 @@ public class RegisterActivity extends AppCompatActivity {
             inputLayoutSignAadhar.setError(getString(R.string.err_field_empty));
             requestFocus(inputSignAadhaar);
             return false;
-        }else {
+        }else  if (aadhaar.length() != 13){
+            inputLayoutSignAadhar.setError("Aadhaar no. must contain 13 digits");
+            requestFocus(inputSignAadhaar);
+            return false;
+        } else {
             inputLayoutSignAadhar.setErrorEnabled(false);
         }
         return true;
@@ -171,6 +182,14 @@ public class RegisterActivity extends AppCompatActivity {
                     break;
             }
         }
+    }
+
+    public static void hideSoftKeyboard(Activity activity) {
+        InputMethodManager inputMethodManager =
+                (InputMethodManager) activity.getSystemService(
+                        Activity.INPUT_METHOD_SERVICE);
+        inputMethodManager.hideSoftInputFromWindow(
+                activity.getCurrentFocus().getWindowToken(), 0);
     }
 
 }

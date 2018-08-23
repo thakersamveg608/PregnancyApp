@@ -11,9 +11,27 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
+        <android.support.design.widget.AppBarLayout
+            android:id="@+id/app_bar_blood_bank"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true">
+
+            <android.support.v7.widget.Toolbar
+                android:id="@+id/blood_bank_toolbar"
+                style="@style/HeaderBar"
+                android:layout_width="match_parent"
+                android:layout_height="56dp">
+
+            </android.support.v7.widget.Toolbar>
+
+
+        </android.support.design.widget.AppBarLayout>
+
         <com.google.android.gms.maps.MapView
             android:id="@+id/map_view_blood_bank"
             android:layout_width="match_parent"
+            android:layout_below="@+id/app_bar_blood_bank"
             android:layout_height="220dp">
 
         </com.google.android.gms.maps.MapView>

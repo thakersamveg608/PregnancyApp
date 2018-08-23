@@ -7,6 +7,9 @@ import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.v4.app.DialogFragment;
 import android.support.v4.app.Fragment;
+import android.support.v4.content.ContextCompat;
+import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -38,6 +41,7 @@ public class HospitalFragment extends DialogFragment implements OnMapReadyCallba
     private TextView userDate;
     private LinearLayout llDate;
     private Spinner spinnerHospital, spinnerTimeSlot;
+    private Toolbar toolbar;
     private MapView mapViewHospitals;
     private GoogleMap gmap;
     private String hospital, timeSlot;
@@ -83,6 +87,16 @@ public class HospitalFragment extends DialogFragment implements OnMapReadyCallba
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_hospital, container, false);
         initialize(view);
+        ((AppCompatActivity)getActivity()).setSupportActionBar(toolbar);
+        toolbar.setTitle("Hospitals");
+        toolbar.setTitleTextColor(ContextCompat.getColor(getContext(), R.color.white));
+        toolbar.setNavigationIcon(getResources().getDrawable(R.drawable.ic_expand_more));
+        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                HospitalFragment.this.dismiss();
+            }
+        });
         mapViewHospitals.onCreate(savedInstanceState);
         mapViewHospitals.getMapAsync(this);
         Calendar calendar = Calendar.getInstance();
@@ -109,6 +123,7 @@ public class HospitalFragment extends DialogFragment implements OnMapReadyCallba
     }
 
     private void initialize(View view) {
+        toolbar = view.findViewById(R.id.hospital_toolbar);
         llDate = view.findViewById(R.id.ll_date);
         selectDate = view.findViewById(R.id.btnDate);
         userDate = view.findViewById(R.id.dateUser);
