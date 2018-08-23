@@ -56,6 +56,7 @@
     <dimen name="margin_224">224dp</dimen>
     <dimen name="margin_256">256dp</dimen>
     <dimen name="margin_300">300dp</dimen>
+    <dimen name="margin_325">325dp</dimen>
 
     //Welcome slider
     <dimen name="dots_height">30dp</dimen>

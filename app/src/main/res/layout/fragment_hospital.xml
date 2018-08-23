@@ -1,15 +1,143 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".HospitalFragment">
+    android:background="@drawable/gradient_registration"
+    android:fillViewport="true"
+    tools:context=".fragments.HospitalFragment">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
 
     <com.google.android.gms.maps.MapView
         android:id="@+id/map_view_hospitals"
         android:layout_width="match_parent"
-        android:layout_height="200dp">
+        android:layout_height="220dp">
 
     </com.google.android.gms.maps.MapView>
 
-</RelativeLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginTop="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_below="@+id/map_view_hospitals">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            android:fontFamily="@font/raleway_medium"
+            android:text="@string/select_hospitals"
+            android:textSize="16sp"/>
+
+        <RelativeLayout
+            android:id="@+id/hospital_layout_spinner"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/spinner_bg"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="10dp">
+
+            <Spinner
+                android:id="@+id/hospital_list"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="8dp"
+                android:layout_marginBottom="5dp"
+                android:popupBackground="@color/white">
+
+            </Spinner>
+
+        </RelativeLayout>
+
+    <Button
+        android:id="@+id/btnDate"
+        android:layout_width="120dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:background="@color/pink_high"
+        android:text="@string/select_date"
+        android:layout_marginTop="16dp"
+        android:textColor="@color/white"/>
+
+        <LinearLayout
+            android:id="@+id/ll_date"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="16dp"
+            android:visibility="gone">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            android:fontFamily="@font/raleway_medium"
+            android:text="@string/your_date"
+            android:textSize="16sp"/>
+
+            <TextView
+                android:id="@+id/dateUser"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black"
+                android:fontFamily="@font/raleway_medium"
+                android:layout_marginStart="8dp"
+                android:textSize="16sp"/>
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            android:fontFamily="@font/raleway_medium"
+            android:text="@string/select_slot"
+            android:layout_marginTop="16dp"
+            android:textSize="16sp"/>
+
+        <RelativeLayout
+            android:id="@+id/time_slot_layout_spinner"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/spinner_bg"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="10dp">
+
+            <Spinner
+                android:id="@+id/time_slot_list"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="8dp"
+                android:layout_marginBottom="5dp"
+                android:popupBackground="@color/white">
+
+            </Spinner>
+
+        </RelativeLayout>
+
+    </LinearLayout>
+        <Button
+            android:id="@+id/hospital_fragment_submit"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="16dp"
+            android:layout_centerHorizontal="true"
+            android:text="@string/submit"
+            android:elevation="8dp"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            android:background="@drawable/button_rounded_corner"/>
+
+    </RelativeLayout>
+
+</ScrollView>

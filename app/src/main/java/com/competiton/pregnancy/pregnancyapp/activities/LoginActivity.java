@@ -13,7 +13,6 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.competiton.pregnancy.pregnancyapp.HomeActivity;
 import com.competiton.pregnancy.pregnancyapp.R;
 import com.competiton.pregnancy.pregnancyapp.database.DatabaseHelperUser;
 import com.google.android.gms.common.GooglePlayServicesNotAvailableException;
@@ -43,8 +42,7 @@ public class LoginActivity extends AppCompatActivity {
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                submit();
-                placePickerTesting();
+                submit();
             }
         });
 
@@ -146,18 +144,6 @@ public class LoginActivity extends AppCompatActivity {
                     validatePassword();
                     break;
             }
-        }
-    }
-
-    private void placePickerTesting() {
-        PlacePicker.IntentBuilder builder = new PlacePicker.IntentBuilder();
-        try {
-            Intent intent = builder.build(this);
-            startActivityForResult(intent, PLACE_PICKER_REQUEST);
-        } catch (GooglePlayServicesRepairableException e) {
-            e.printStackTrace();
-        } catch (GooglePlayServicesNotAvailableException e) {
-            e.printStackTrace();
         }
     }
 

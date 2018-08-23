@@ -3,16 +3,16 @@
     android:layout_height="match_parent"
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:background="#000000">
+    android:background="@drawable/gradient_registration">
 
     <android.support.v7.widget.CardView
-        android:id="@+id/cvQuestion"
+        android:id="@+id/cvInfo"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:minHeight="@dimen/margin_200"
+        android:minHeight="@dimen/margin_150"
         android:layout_marginTop="@dimen/margin_90"
-        android:layout_marginLeft="@dimen/margin_16"
-        android:layout_marginRight="@dimen/margin_16"
+        android:layout_marginLeft="@dimen/margin_48"
+        android:layout_marginRight="@dimen/margin_48"
         android:layout_centerHorizontal="true"
         app:cardElevation="@dimen/margin_2"
         app:cardCornerRadius="@dimen/margin_4">
@@ -23,28 +23,28 @@
             android:layout_marginBottom="@dimen/margin_16">
 
             <TextView
-                android:id="@+id/timer"
+                android:id="@+id/tvName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textColor="#000000"
-                android:layout_marginRight="@dimen/margin_16"
-                android:layout_marginTop="@dimen/margin_8"
-                android:layout_alignParentRight="true"
-                android:textSize="24sp"
-                android:text="00:30"/>
-
-            <TextView
-                android:id="@+id/tvQuestion"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/margin_100"
-                android:layout_marginLeft="@dimen/margin_16"
-                android:layout_marginRight="@dimen/margin_16"
+                android:layout_marginTop=   "@dimen/margin_100"
                 android:layout_centerHorizontal="true"
                 android:gravity="center"
                 android:fontFamily="@font/raleway_medium"
                 android:textSize="@dimen/margin_16"
-                android:text="Identify the logo and guess the brand?Identify the logo and guess the brand?Identify the logo and guess the brand?Identify the logo and guess the brand?"/>
+                android:textColor="@color/black"
+                android:text="Name : Justin Metthiew"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tvName"
+                android:layout_marginTop="@dimen/margin_8"
+                android:layout_centerHorizontal="true"
+                android:gravity="center"
+                android:fontFamily="@font/raleway_medium"
+                android:textSize="@dimen/margin_16"
+                android:textColor="@color/black"
+                android:text="UUID : 181BC70NB9X50"/>
 
 
         </RelativeLayout>
@@ -52,18 +52,17 @@
     </android.support.v7.widget.CardView>
 
     <android.support.v7.widget.CardView
-        android:id="@+id/cvQuestionImage"
+        android:id="@+id/cvImage"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/margin_20"
         android:layout_centerHorizontal="true"
         app:cardCornerRadius="@dimen/margin_80"
-        app:cardElevation="@dimen/margin_4"
-        app:cardBackgroundColor="@android:color/transparent">
+        app:cardElevation="@dimen/margin_4">
 
 
             <ImageView
-                android:id="@+id/ivQuestion"
+                android:id="@+id/ivCustomerImage"
                 android:layout_width="@dimen/margin_150"
                 android:layout_height="@dimen/margin_150"
                 android:layout_centerHorizontal="true"
@@ -71,5 +70,99 @@
 
     </android.support.v7.widget.CardView>
 
+    <android.support.v7.widget.CardView
+        android:id="@+id/cvHealthCentres"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin_325"
+        android:layout_centerHorizontal="true"
+        app:cardCornerRadius="@dimen/margin_75"
+        app:cardElevation="@dimen/margin_4">
+
+
+        <ImageView
+            android:id="@+id/ivHealthCentre"
+            android:layout_width="@dimen/margin_150"
+            android:layout_height="@dimen/margin_150"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:scaleType="centerCrop"/>
+
+    </android.support.v7.widget.CardView>
+
+    <android.support.v7.widget.CardView
+        android:id="@+id/cvShop"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="@dimen/margin_64"
+        android:layout_marginLeft="@dimen/margin_8"
+        app:cardCornerRadius="@dimen/margin_2"
+        app:cardElevation="@dimen/margin_4">
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/ivShopCart"
+                android:layout_width="@dimen/margin_40"
+                android:layout_height="@dimen/margin_40"
+                android:layout_margin="@dimen/margin_8"
+                android:src="@drawable/ic_shopping_bag_solid"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="@dimen/margin_8"
+                android:layout_marginRight="@dimen/margin_8"
+                android:fontFamily="@font/raleway_medium"
+                android:textColor="#1a237e"
+                android:textSize="@dimen/margin_16"
+                android:text="Shop with us"/>
+
+        </LinearLayout>
+
+    </android.support.v7.widget.CardView>
+
+    <android.support.v7.widget.CardView
+        android:id="@+id/cvCustomerCare"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="@dimen/margin_64"
+        android:layout_marginRight="@dimen/margin_8"
+        app:cardCornerRadius="@dimen/margin_2"
+        app:cardElevation="@dimen/margin_4">
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/ivSupport"
+                android:layout_width="@dimen/margin_40"
+                android:layout_height="@dimen/margin_40"
+                android:layout_margin="@dimen/margin_8"
+                android:src="@drawable/ic_headset_solid"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginRight="@dimen/margin_8"
+                android:fontFamily="@font/raleway_medium"
+                android:textColor="#9b0000"
+                android:textSize="@dimen/margin_16"
+                android:text="Customer care"/>
+
+        </LinearLayout>
+
+    </android.support.v7.widget.CardView>
 
 </RelativeLayout>
