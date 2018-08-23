@@ -1,4 +1,4 @@
-package com.competiton.pregnancy.pregnancyapp.adapter;
+package com.competiton.pregnancy.pregnancyapp.fragments;
 
 import android.app.Dialog;
 import android.os.Bundle;
@@ -18,8 +18,7 @@ import android.widget.ProgressBar;
 import android.widget.Spinner;
 
 import com.competiton.pregnancy.pregnancyapp.R;
-import com.competiton.pregnancy.pregnancyapp.fragments.BloodBankFragment;
-import com.competiton.pregnancy.pregnancyapp.fragments.DrugStoreAdapter;
+import com.competiton.pregnancy.pregnancyapp.adapter.DrugStoreAdapter;
 import com.competiton.pregnancy.pregnancyapp.model.DrugStoreDetail;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -125,11 +124,12 @@ public class DrugStoreFragment extends DialogFragment implements OnMapReadyCallb
 
     private void setSpinner() {
         List<String> drugStoreList = new ArrayList<>();
-        drugStoreList.add("Drug Store 1");
-        drugStoreList.add("Drug Store 2");
-        drugStoreList.add("Drug Store 3");
-        drugStoreList.add("Drug Store 4");
-        drugStoreList.add("Drug Store 5");
+        drugStoreList.add("Jain Medicals");
+        drugStoreList.add("Ganesh Surgicals");
+        drugStoreList.add("Gupta Medicals");
+        drugStoreList.add("Ambika Homeo Pharmacy");
+        drugStoreList.add("Om Medicos");
+        drugStoreList.add("Balaji Medicos");
 
         ArrayAdapter<String> dataAdapterDrugStore = new ArrayAdapter<String>(getContext(),
                 R.layout.spinner_item, drugStoreList);

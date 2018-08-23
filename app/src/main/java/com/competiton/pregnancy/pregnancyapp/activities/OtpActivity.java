@@ -14,6 +14,7 @@ import android.widget.Toolbar;
 
 import com.bumptech.glide.Glide;
 import com.competiton.pregnancy.pregnancyapp.R;
+import com.competiton.pregnancy.pregnancyapp.utils.SharedPrefs;
 
 public class OtpActivity extends AppCompatActivity {
 
@@ -21,6 +22,7 @@ public class OtpActivity extends AppCompatActivity {
     private TextView tvSubmit;
     private ImageView logo;
     private String otp;
+    private SharedPrefs sharedPrefs;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,7 +30,7 @@ public class OtpActivity extends AppCompatActivity {
         setContentView(R.layout.activity_otp);
         initialize();
         Glide.with(this).load(R.drawable.pregacarelogo1).into(logo);
-
+        sharedPrefs = new SharedPrefs(this);
         tvSubmit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -37,6 +39,7 @@ public class OtpActivity extends AppCompatActivity {
                 if (otp.isEmpty()) {
                     Toast.makeText(OtpActivity.this, getString(R.string.err_field_empty), Toast.LENGTH_LONG).show();
                 } else if (otp.equals("1234")) {
+                    sharedPrefs.setLogin(true);
                     Toast.makeText(OtpActivity.this, "Otp successfully verified", Toast.LENGTH_LONG).show();
                     Intent i = new Intent(OtpActivity.this, HomeActivity.class);
                     startActivity(i);

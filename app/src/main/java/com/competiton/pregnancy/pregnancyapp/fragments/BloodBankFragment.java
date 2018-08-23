@@ -133,11 +133,11 @@ public class BloodBankFragment extends DialogFragment implements OnMapReadyCallb
 
     private void setSpinner() {
         List<String> bloodBankList = new ArrayList<>();
-        bloodBankList.add("Blood Bank 1");
-        bloodBankList.add("Blood Bank 2");
-        bloodBankList.add("Blood Bank 3");
-        bloodBankList.add("Blood Bank 4");
-        bloodBankList.add("Blood Bank 5");
+        bloodBankList.add("United Blood Bank");
+        bloodBankList.add("Red Cross Blood Bank");
+        bloodBankList.add("Rajdhani Blood Bank");
+        bloodBankList.add("Model Blood Bank");
+        bloodBankList.add("SSD Blood Bank");
 
         List<String> blooGroupList = new ArrayList<>();
         blooGroupList.add("A +ve");

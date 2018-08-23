@@ -19,6 +19,7 @@ import android.widget.Toast;
 import com.bumptech.glide.Glide;
 import com.competiton.pregnancy.pregnancyapp.R;
 import com.competiton.pregnancy.pregnancyapp.database.DatabaseHelperUser;
+import com.competiton.pregnancy.pregnancyapp.utils.SharedPrefs;
 import com.google.android.gms.common.GooglePlayServicesNotAvailableException;
 import com.google.android.gms.common.GooglePlayServicesRepairableException;
 import com.google.android.gms.location.places.Place;
@@ -32,6 +33,7 @@ public class LoginActivity extends AppCompatActivity {
     private Button btnLogin;
     private TextView newUser;
     private ImageView logo;
+    private SharedPrefs sharedPrefs;
     DatabaseHelperUser databaseHelperUser = new DatabaseHelperUser(this);
 
     @Override
@@ -39,7 +41,7 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
         initialize();
-
+        sharedPrefs = new SharedPrefs(this);
         inputLoginMobile.addTextChangedListener(new MyTextWatcher(inputLoginMobile));
         inputLoginPassword.addTextChangedListener(new MyTextWatcher(inputLoginPassword));
         Glide.with(this).load(R.drawable.pregacarelogo1).into(logo);
@@ -82,6 +84,7 @@ public class LoginActivity extends AppCompatActivity {
         }
         valPassword = databaseHelperUser.searchPass(mobile);
         if (password.equals(valPassword)){
+            sharedPrefs.setLogin(true);
             Toast.makeText(this,"Login Successfull",Toast.LENGTH_LONG).show();
             Intent i = new Intent(LoginActivity.this,HomeActivity.class);
             startActivity(i);

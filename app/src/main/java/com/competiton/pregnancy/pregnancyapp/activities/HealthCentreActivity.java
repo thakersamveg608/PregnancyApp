@@ -1,6 +1,5 @@
 package com.competiton.pregnancy.pregnancyapp.activities;
 
-import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -10,7 +9,7 @@ import android.widget.ImageView;
 
 import com.bumptech.glide.Glide;
 import com.competiton.pregnancy.pregnancyapp.R;
-import com.competiton.pregnancy.pregnancyapp.adapter.DrugStoreFragment;
+import com.competiton.pregnancy.pregnancyapp.fragments.DrugStoreFragment;
 import com.competiton.pregnancy.pregnancyapp.fragments.BloodBankFragment;
 import com.competiton.pregnancy.pregnancyapp.fragments.HospitalFragment;
 

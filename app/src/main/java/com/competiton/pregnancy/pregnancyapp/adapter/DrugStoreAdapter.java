@@ -1,4 +1,4 @@
-package com.competiton.pregnancy.pregnancyapp.fragments;
+package com.competiton.pregnancy.pregnancyapp.adapter;
 
 import android.content.Context;
 import android.support.annotation.NonNull;

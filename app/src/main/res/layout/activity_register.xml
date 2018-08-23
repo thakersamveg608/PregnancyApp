@@ -18,7 +18,7 @@
             android:layout_height="wrap_content"
             android:text="Registration"
             android:fontFamily="@font/raleway_bold"
-            android:textSize="24sp"
+            android:textSize="30sp"
             android:textColor="@color/black"
             android:layout_marginTop="8dp"
             android:gravity="center"/>
@@ -28,7 +28,7 @@
             android:layout_width="150dp"
             android:layout_height="150dp"
             android:scaleType="fitXY"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="16dp"
             android:layout_gravity="center"/>
 
         <android.support.design.widget.TextInputLayout

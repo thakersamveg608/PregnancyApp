@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:background="@drawable/gradient_registration"
     android:fillViewport="true"
-    tools:context=".adapter.DrugStoreFragment">
+    tools:context=".fragments.DrugStoreFragment">
 
     <RelativeLayout
         android:layout_width="match_parent"

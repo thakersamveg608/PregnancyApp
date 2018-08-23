@@ -13,16 +13,24 @@ import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
 import com.competiton.pregnancy.pregnancyapp.R;
 import com.competiton.pregnancy.pregnancyapp.fragments.ShoppingFragment;
+import com.competiton.pregnancy.pregnancyapp.utils.SharedPrefs;
 
 public class HomeActivity extends AppCompatActivity implements View.OnClickListener {
 
     private ImageView ivHealthCentre, ivCustomerImage;
     private CardView cvShop, cvCustomerCare;
+    private SharedPrefs sharedPrefs;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
+        sharedPrefs = new SharedPrefs(this);
+        if (!sharedPrefs.isLoggedIn()){
+            Intent i = new Intent(HomeActivity.this, LoginActivity.class);
+            startActivity(i);
+            finish();
+        }
         initView();
     }
 

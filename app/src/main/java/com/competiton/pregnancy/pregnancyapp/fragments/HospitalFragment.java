@@ -135,11 +135,11 @@ public class HospitalFragment extends DialogFragment implements OnMapReadyCallba
 
     private void setSpinner() {
         List<String> hospitalList = new ArrayList<>();
-        hospitalList.add("Hospital 1");
-        hospitalList.add("Hospital 2");
-        hospitalList.add("Hospital 3");
-        hospitalList.add("Hospital 4");
-        hospitalList.add("Hospital 5");
+        hospitalList.add("Banthia Hospital");
+        hospitalList.add("Anjali Children Hospital");
+        hospitalList.add("Bal Gopal Children Hospital");
+        hospitalList.add("Netram Eye Hospital");
+        hospitalList.add("Karma Hospital");
 
         List<String> timeSlotList = new ArrayList<>();
         timeSlotList.add("9am - 11am");
