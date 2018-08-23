@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">PregnancyApp</string>
+    <string name="app_name">Pregacare</string>
     <string name="google_maps_api_key">AIzaSyACuVgELo16hDhRJt32gEAsfBr7QdfIMXA</string>
     <string name="hint_aadhar_id">Aadhar ID</string>
     <string name="hint_mobile">Mobile Number</string>

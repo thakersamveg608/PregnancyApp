@@ -2,10 +2,12 @@ package com.competiton.pregnancy.pregnancyapp.fragments;
 
 import android.app.Dialog;
 import android.content.Context;
-import android.net.Uri;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.DialogFragment;
-import android.support.v4.app.Fragment;
+import android.support.v4.content.ContextCompat;
+import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -13,13 +15,13 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.competiton.pregnancy.pregnancyapp.R;
+import com.competiton.pregnancy.pregnancyapp.activities.LoginActivity;
 import com.competiton.pregnancy.pregnancyapp.utils.SharedPrefs;
-import com.warkiz.widget.IndicatorSeekBar;
-import com.warkiz.widget.IndicatorStayLayout;
-import com.warkiz.widget.IndicatorType;
 
 public class ProfileFragment extends DialogFragment implements View.OnClickListener{
 
@@ -27,6 +29,8 @@ public class ProfileFragment extends DialogFragment implements View.OnClickListe
     private EditText etPrescription;
     private TextView tvPrescription;
     private LinearLayout lrPrescription;
+    private RelativeLayout rlSignOut;
+    private Toolbar toolbar;
     private SharedPrefs sharedPrefs;
 
     public ProfileFragment() {
@@ -70,7 +74,16 @@ public class ProfileFragment extends DialogFragment implements View.OnClickListe
         View view =  inflater.inflate(R.layout.fragment_profile, container, false);
         initView(view);
         sharedPrefs = new SharedPrefs(getContext());
-
+        ((AppCompatActivity)getActivity()).setSupportActionBar(toolbar);
+        toolbar.setTitle("Profile");
+        toolbar.setTitleTextColor(ContextCompat.getColor(getContext(), R.color.white));
+        toolbar.setNavigationIcon(getResources().getDrawable(R.drawable.ic_expand_more));
+        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ProfileFragment.this.dismiss();
+            }
+        });
         return view;
     }
 
@@ -78,23 +91,15 @@ public class ProfileFragment extends DialogFragment implements View.OnClickListe
         lrPrescription = view.findViewById(R.id.lrPrescription);
         tvPrescription = view.findViewById(R.id.tvPrescription);
         etPrescription = view.findViewById(R.id.etPrescription);
-
+        rlSignOut = view.findViewById(R.id.rlSignOut);
+        toolbar = view.findViewById(R.id.profile_toolbar);
         btnViewPrescription = view.findViewById(R.id.btnViewPrescription);
         btnEditPrescription = view.findViewById(R.id.btnEditPrescription);
         btnSubmit = view.findViewById(R.id.btnSubmit);
         btnSubmit.setOnClickListener(this);
         btnEditPrescription.setOnClickListener(this);
         btnViewPrescription.setOnClickListener(this);
-    }
-
-    @Override
-    public void onAttach(Context context) {
-        super.onAttach(context);
-    }
-
-    @Override
-    public void onDetach() {
-        super.onDetach();
+        rlSignOut.setOnClickListener(this);
     }
 
     @Override
@@ -120,6 +125,12 @@ public class ProfileFragment extends DialogFragment implements View.OnClickListe
                 lrPrescription.setVisibility(View.VISIBLE);
                 tvPrescription.setVisibility(View.GONE);
                 break;
+            case R.id.rlSignOut:
+                sharedPrefs.setLogin(false);
+                Toast.makeText(getContext(), "Logged Out", Toast.LENGTH_LONG).show();
+                Intent i = new Intent(getActivity(), LoginActivity.class);
+                startActivity(i);
+                getActivity().finish();
         }
     }
 }

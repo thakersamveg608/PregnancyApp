@@ -5,10 +5,29 @@
     android:background="@drawable/gradient_registration"
     xmlns:android="http://schemas.android.com/apk/res/android">
 
+    <android.support.design.widget.AppBarLayout
+        android:id="@+id/app_bar_shop"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/shop_toolbar"
+            style="@style/HeaderBar"
+            android:layout_width="match_parent"
+            android:layout_height="56dp">
+
+        </android.support.v7.widget.Toolbar>
+
+
+    </android.support.design.widget.AppBarLayout>
+
+
     <android.support.v7.widget.RecyclerView
         android:id="@+id/rvShop"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_below="@+id/app_bar_shop"
         android:layout_margin="@dimen/margin_16"/>
 
 </RelativeLayout>

@@ -57,7 +57,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/margin_20"
         android:layout_centerHorizontal="true"
-        app:cardCornerRadius="@dimen/margin_80"
+        app:cardCornerRadius="77dp"
         app:cardElevation="@dimen/margin_4">
 
 
@@ -76,7 +76,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/margin_325"
         android:layout_centerHorizontal="true"
-        app:cardCornerRadius="@dimen/margin_75"
+        app:cardCornerRadius="77dp"
         app:cardElevation="@dimen/margin_4">
 
 
