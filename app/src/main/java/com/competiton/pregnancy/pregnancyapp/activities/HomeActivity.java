@@ -29,7 +29,12 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
         sharedPrefs = new SharedPrefs(this);
-        if (!sharedPrefs.isLoggedIn()){
+        if(!sharedPrefs.isLanguageSelected()){
+            Intent i = new Intent(HomeActivity.this, SplashActivity.class);
+            startActivity(i);
+            finish();
+        }
+        else if (!sharedPrefs.isLoggedIn()){
             Intent i = new Intent(HomeActivity.this, LoginActivity.class);
             startActivity(i);
             finish();
