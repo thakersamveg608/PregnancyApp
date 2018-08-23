@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/gradient_registration"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <ImageView
+        android:layout_width="@dimen/margin_256"
+        android:layout_height="@dimen/margin_256"
+        android:layout_centerHorizontal="true"
+        android:src="@drawable/pregacarelogo1"/>
+
+    <TextView
+        android:id="@+id/tvLanguage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:fontFamily="@font/raleway_medium"
+        android:textColor="@color/white"
+        android:textSize="@dimen/margin_32"
+        android:text="Please choose a language" />
+
+    <Button
+        android:id="@+id/btnHindi"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_below="@+id/tvLanguage"
+        android:layout_marginTop="@dimen/margin_64"
+        android:layout_marginLeft="@dimen/margin_32"
+        android:text="Hindi"
+        android:textColor="@color/white"
+        android:fontFamily="@font/raleway_bold"
+        android:textSize="15sp"
+        android:background="@drawable/button_rounded_corner"/>
+
+    <Button
+        android:id="@+id/btnEnglish"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_below="@+id/tvLanguage"
+        android:layout_marginTop="@dimen/margin_64"
+        android:layout_marginRight="@dimen/margin_32"
+        android:layout_alignParentRight="true"
+        android:text="English"
+        android:textColor="@color/pink_high"
+        android:fontFamily="@font/raleway_bold"
+        android:textSize="15sp"
+        android:background="@drawable/button_rounded_corner_alternate"/>
+
+    <RelativeLayout
+        android:id="@+id/rlProceed"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="@color/pink_high">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/raleway_medium"
+            android:textAllCaps="true"
+            android:layout_margin="@dimen/margin_8"
+            android:textSize="@dimen/margin_24"
+            android:textColor="@color/white"
+            android:text="Proceed"
+            android:layout_centerHorizontal="true"/>
+
+    </RelativeLayout>
+
+</RelativeLayout>
