@@ -9,6 +9,7 @@
         android:layout_width="@dimen/margin_200"
         android:layout_height="@dimen/margin_200"
         android:layout_centerHorizontal="true"
+        android:layout_marginTop="@dimen/margin_32"
         android:src="@drawable/pregacarelogo1"/>
 
     <TextView

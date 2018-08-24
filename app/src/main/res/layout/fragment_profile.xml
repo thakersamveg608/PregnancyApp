@@ -39,18 +39,8 @@
                 android:gravity="center">
 
                 <Button
-                    android:id="@+id/btnEditPrescription"
-                    android:layout_width="150dp"
-                    android:layout_height="wrap_content"
-                    android:background="@color/pink_high"
-                    android:textAllCaps="true"
-                    android:fontFamily="@font/raleway_medium"
-                    android:textColor="@color/white"
-                    android:text="Edit Prescription"/>
-
-                <Button
                     android:id="@+id/btnViewPrescription"
-                    android:layout_width="150dp"
+                    android:layout_width="250dp"
                     android:layout_height="wrap_content"
                     android:background="@color/pink_high"
                     android:layout_marginLeft="@dimen/margin_16"
@@ -66,37 +56,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/lrButtonLayout">
-                <LinearLayout
-                    android:id="@+id/lrPrescription"
-                    android:orientation="vertical"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_centerHorizontal="true">
-
-                    <EditText
-                        android:id="@+id/etPrescription"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:minWidth="@dimen/margin_256"
-                        android:layout_gravity="center"
-                        android:layout_marginTop="@dimen/margin_16"
-                        android:layout_marginLeft="@dimen/margin_16"
-                        android:layout_marginRight="@dimen/margin_16"
-                        android:textColor="@color/white"/>
-
-                    <Button
-                        android:id="@+id/btnSubmit"
-                        android:layout_width="150dp"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center_horizontal"
-                        android:layout_marginTop="16dp"
-                        android:text="@string/submit"
-                        android:textColor="@color/white"
-                        android:fontFamily="@font/raleway_bold"
-                        android:textSize="15sp"
-                        android:background="@drawable/button_rounded_corner"/>
-
-                </LinearLayout>
 
                 <TextView
                     android:id="@+id/tvPrescription"
@@ -109,7 +68,9 @@
                     android:layout_marginTop="@dimen/margin_16"
                     android:layout_marginLeft="@dimen/margin_16"
                     android:layout_marginRight="@dimen/margin_16"
-                    android:textColor="@color/white"/>
+                    android:textColor="@color/white"
+                    android:visibility="gone"
+                    android:text="@string/week2"/>
             </RelativeLayout>
 
 
@@ -173,8 +134,9 @@
 
                 <ImageView
                     android:id="@+id/ivWeek"
-                    android:layout_width="@dimen/margin_100"
-                    android:layout_height="@dimen/margin_100"
+                    android:layout_width="@dimen/margin_150"
+                    android:layout_height="@dimen/margin_150"
+                    android:scaleType="fitXY"
                     android:layout_gravity="center_horizontal"
                     android:layout_margin="@dimen/margin_8"
                     android:visibility="gone"/>
@@ -190,6 +152,31 @@
                     android:textColor="@color/white"
                     android:textSize="@dimen/margin_16"
                     android:text="@string/week1"
+                    android:visibility="gone"/>
+
+                <TextView
+                    android:id="@+id/tvHeading2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/raleway_medium"
+                    android:layout_marginTop="@dimen/margin_8"
+                    android:layout_marginLeft="@dimen/margin_8"
+                    android:textSize="@dimen/margin_32"
+                    android:textColor="@color/white"
+                    android:text="Best Pregnancy Workouts :"
+                    android:visibility="gone"/>
+
+                <TextView
+                    android:id="@+id/tvContent2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_8"
+                    android:layout_marginLeft="@dimen/margin_8"
+                    android:layout_marginRight="@dimen/margin_8"
+                    android:fontFamily="@font/raleway_medium"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/margin_16"
+                    android:text="@string/exercise"
                     android:visibility="gone"/>
 
             </LinearLayout>

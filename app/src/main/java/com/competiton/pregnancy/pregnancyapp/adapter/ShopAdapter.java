@@ -41,7 +41,7 @@ public class ShopAdapter extends RecyclerView.Adapter<ShopAdapter.ViewHolder>{
 
         final PregaShopDetails pregaShopDetails = shopItems.get(position);
         holder.tvItem.setText(pregaShopDetails.getItemName());
-        Glide.with(context).load(pregaShopDetails.getItemUrl()).into(holder.ivItem);
+        Glide.with(context).load(R.drawable.shop_image).into(holder.ivItem);
 
     }
 

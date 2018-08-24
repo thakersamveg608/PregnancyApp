@@ -33,9 +33,9 @@ import java.util.List;
 
 public class ProfileFragment extends DialogFragment implements View.OnClickListener{
 
-    private Button btnEditPrescription, btnViewPrescription, btnSubmit;
+    private Button btnViewPrescription, btnSubmit;
     private EditText etPrescription;
-    private TextView tvPrescription, tvHeading, tvContent;
+    private TextView tvPrescription, tvHeading, tvContent, tvHeading2, tvContent2;
     private ImageView ivWeek;
     private LinearLayout lrPrescription;
     private Spinner spinnerPregnancyPeriod;
@@ -43,6 +43,7 @@ public class ProfileFragment extends DialogFragment implements View.OnClickListe
     private Toolbar toolbar;
     private SharedPrefs sharedPrefs;
     private String weekPregnancyPeriod;
+    private Boolean showPrescription = true;
 
     public ProfileFragment() {
         // Required empty public constructor
@@ -97,7 +98,10 @@ public class ProfileFragment extends DialogFragment implements View.OnClickListe
         });
         tvHeading = view.findViewById(R.id.tvHeading);
         tvContent = view.findViewById(R.id.tvContent);
+        tvHeading2 = view.findViewById(R.id.tvHeading2);
+        tvContent2 = view.findViewById(R.id.tvContent2);
         ivWeek = view.findViewById(R.id.ivWeek);
+        setSpinner();
         return view;
     }
 
@@ -108,10 +112,10 @@ public class ProfileFragment extends DialogFragment implements View.OnClickListe
         weekPregnancyList.add("18 - 26 week");
         weekPregnancyList.add("27 - 36 week");
 
-        ArrayAdapter<String> dataAdapterHospital = new ArrayAdapter<String>(getContext(),
+        ArrayAdapter<String> dataAdapterWeekPregnancy = new ArrayAdapter<String>(getContext(),
                 R.layout.spinner_item, weekPregnancyList);
-        dataAdapterHospital.setDropDownViewResource(R.layout.spinner_dropdown_item);
-        spinnerPregnancyPeriod.setAdapter(dataAdapterHospital);
+        dataAdapterWeekPregnancy.setDropDownViewResource(R.layout.spinner_dropdown_item);
+        spinnerPregnancyPeriod.setAdapter(dataAdapterWeekPregnancy);
 
         spinnerPregnancyPeriod.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
@@ -120,6 +124,8 @@ public class ProfileFragment extends DialogFragment implements View.OnClickListe
                 ivWeek.setVisibility(View.VISIBLE);
                 tvContent.setVisibility(View.VISIBLE);
                 tvHeading.setVisibility(View.VISIBLE);
+                tvHeading2.setVisibility(View.VISIBLE);
+                tvContent2.setVisibility(View.VISIBLE);
                 tvHeading.setText("Eating well: "+weekPregnancyPeriod);
                 tvContent.setText(getString(R.string.week1));
                 switch(position){
@@ -143,23 +149,19 @@ public class ProfileFragment extends DialogFragment implements View.OnClickListe
                 ivWeek.setVisibility(View.GONE);
                 tvContent.setVisibility(View.GONE);
                 tvHeading.setVisibility(View.GONE);
+                tvContent2.setVisibility(View.GONE);
+                tvHeading2.setVisibility(View.GONE);
             }
         });
 
     }
 
     private void initView(View view){
-        lrPrescription = view.findViewById(R.id.lrPrescription);
         tvPrescription = view.findViewById(R.id.tvPrescription);
-        etPrescription = view.findViewById(R.id.etPrescription);
         rlSignOut = view.findViewById(R.id.rlSignOut);
         toolbar = view.findViewById(R.id.profile_toolbar);
         btnViewPrescription = view.findViewById(R.id.btnViewPrescription);
-        btnEditPrescription = view.findViewById(R.id.btnEditPrescription);
         spinnerPregnancyPeriod = view.findViewById(R.id.pregnancy_period_list);
-        btnSubmit = view.findViewById(R.id.btnSubmit);
-        btnSubmit.setOnClickListener(this);
-        btnEditPrescription.setOnClickListener(this);
         btnViewPrescription.setOnClickListener(this);
         rlSignOut.setOnClickListener(this);
     }
@@ -167,25 +169,17 @@ public class ProfileFragment extends DialogFragment implements View.OnClickListe
     @Override
     public void onClick(View v) {
         switch (v.getId()){
-            case R.id.btnSubmit:
-                if(!TextUtils.isEmpty(etPrescription.getText().toString().trim())){
-                    sharedPrefs.setPrescription(etPrescription.getText().toString().trim());
-                    lrPrescription.setVisibility(View.GONE);
-                }
-                break;
             case R.id.btnViewPrescription:
-                if(!TextUtils.isEmpty(sharedPrefs.getPrescription())){
-                    tvPrescription.setText(sharedPrefs.getPrescription());
+                if(showPrescription){
+                    showPrescription = false;
+                    tvPrescription.setVisibility(View.VISIBLE);
+                    btnViewPrescription.setText("Hide Prescription");
                 }
                 else{
-                    tvPrescription.setText("No prescription available yet.");
+                    showPrescription = true;
+                    tvPrescription.setVisibility(View.GONE);
+                    btnViewPrescription.setText("View Prescription");
                 }
-                tvPrescription.setVisibility(View.VISIBLE);
-                lrPrescription.setVisibility(View.GONE);
-                break;
-            case R.id.btnEditPrescription:
-                lrPrescription.setVisibility(View.VISIBLE);
-                tvPrescription.setVisibility(View.GONE);
                 break;
             case R.id.rlSignOut:
                 sharedPrefs.setLogin(false);
