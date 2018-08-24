@@ -14,7 +14,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".activities.RegisterActivity"
-            android:screenOrientation="nosensor"/>
+            android:screenOrientation="nosensor">
+        </activity>
         <activity android:name=".activities.LoginActivity"
             android:screenOrientation="nosensor">
 
@@ -36,6 +37,7 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+
         </activity>
         <activity android:name=".activities.SplashActivity"
             android:screenOrientation="nosensor"/>

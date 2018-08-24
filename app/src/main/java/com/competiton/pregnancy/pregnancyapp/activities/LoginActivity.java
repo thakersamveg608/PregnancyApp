@@ -91,7 +91,7 @@ public class LoginActivity extends AppCompatActivity {
             finish();
         }
         else{
-            Toast.makeText(this,"Credentials doest not match",Toast.LENGTH_LONG).show();
+            Toast.makeText(this,"Credentials does not match",Toast.LENGTH_LONG).show();
         }
     }
 
