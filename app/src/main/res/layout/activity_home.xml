@@ -32,7 +32,7 @@
                 android:fontFamily="@font/raleway_medium"
                 android:textSize="@dimen/margin_16"
                 android:textColor="@color/black"
-                android:text="Name : Justin Metthiew"/>
+                android:text="Name : Jestin Mathew"/>
 
             <TextView
                 android:layout_width="wrap_content"

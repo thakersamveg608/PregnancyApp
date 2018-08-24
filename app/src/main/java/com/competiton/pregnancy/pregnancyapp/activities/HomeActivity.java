@@ -51,7 +51,7 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
         cvImage = findViewById(R.id.cvImage);
 
         Glide.with(this).load(R.drawable.health_centre).apply(RequestOptions.circleCropTransform()).into(ivHealthCentre);
-        Glide.with(this).load(R.drawable.ic_profile_image).apply(RequestOptions.circleCropTransform()).into(ivCustomerImage);
+        Glide.with(this).load(R.drawable.profile_pic).apply(RequestOptions.circleCropTransform()).into(ivCustomerImage);
         ivHealthCentre.setOnClickListener(this);
         cvShop.setOnClickListener(this);
         cvCustomerCare.setOnClickListener(this);

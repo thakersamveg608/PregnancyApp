@@ -12,26 +12,37 @@ import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.bumptech.glide.Glide;
 import com.competiton.pregnancy.pregnancyapp.R;
 import com.competiton.pregnancy.pregnancyapp.activities.LoginActivity;
 import com.competiton.pregnancy.pregnancyapp.utils.SharedPrefs;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class ProfileFragment extends DialogFragment implements View.OnClickListener{
 
     private Button btnEditPrescription, btnViewPrescription, btnSubmit;
     private EditText etPrescription;
-    private TextView tvPrescription;
+    private TextView tvPrescription, tvHeading, tvContent;
+    private ImageView ivWeek;
     private LinearLayout lrPrescription;
+    private Spinner spinnerPregnancyPeriod;
     private RelativeLayout rlSignOut;
     private Toolbar toolbar;
     private SharedPrefs sharedPrefs;
+    private String weekPregnancyPeriod;
 
     public ProfileFragment() {
         // Required empty public constructor
@@ -84,7 +95,57 @@ public class ProfileFragment extends DialogFragment implements View.OnClickListe
                 ProfileFragment.this.dismiss();
             }
         });
+        tvHeading = view.findViewById(R.id.tvHeading);
+        tvContent = view.findViewById(R.id.tvContent);
+        ivWeek = view.findViewById(R.id.ivWeek);
         return view;
+    }
+
+    private void setSpinner() {
+        List<String> weekPregnancyList = new ArrayList<>();
+        weekPregnancyList.add("0 - 8 week");
+        weekPregnancyList.add("9 - 17 week");
+        weekPregnancyList.add("18 - 26 week");
+        weekPregnancyList.add("27 - 36 week");
+
+        ArrayAdapter<String> dataAdapterHospital = new ArrayAdapter<String>(getContext(),
+                R.layout.spinner_item, weekPregnancyList);
+        dataAdapterHospital.setDropDownViewResource(R.layout.spinner_dropdown_item);
+        spinnerPregnancyPeriod.setAdapter(dataAdapterHospital);
+
+        spinnerPregnancyPeriod.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                weekPregnancyPeriod = parent.getItemAtPosition(position).toString().trim();
+                ivWeek.setVisibility(View.VISIBLE);
+                tvContent.setVisibility(View.VISIBLE);
+                tvHeading.setVisibility(View.VISIBLE);
+                tvHeading.setText("Eating well: "+weekPregnancyPeriod);
+                tvContent.setText(getString(R.string.week1));
+                switch(position){
+                    case 0:
+                        Glide.with(getContext()).load(R.drawable.pic1).into(ivWeek);
+                        break;
+                    case 1:
+                        Glide.with(getContext()).load(R.drawable.pic2).into(ivWeek);
+                        break;
+                    case 2:
+                        Glide.with(getContext()).load(R.drawable.pic3).into(ivWeek);
+                        break;
+                    case 3:
+                        Glide.with(getContext()).load(R.drawable.pic4).into(ivWeek);
+                        break;
+                }
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+                ivWeek.setVisibility(View.GONE);
+                tvContent.setVisibility(View.GONE);
+                tvHeading.setVisibility(View.GONE);
+            }
+        });
+
     }
 
     private void initView(View view){
@@ -95,6 +156,7 @@ public class ProfileFragment extends DialogFragment implements View.OnClickListe
         toolbar = view.findViewById(R.id.profile_toolbar);
         btnViewPrescription = view.findViewById(R.id.btnViewPrescription);
         btnEditPrescription = view.findViewById(R.id.btnEditPrescription);
+        spinnerPregnancyPeriod = view.findViewById(R.id.pregnancy_period_list);
         btnSubmit = view.findViewById(R.id.btnSubmit);
         btnSubmit.setOnClickListener(this);
         btnEditPrescription.setOnClickListener(this);
