@@ -18,5 +18,9 @@
     <string name="select_blood_bank">Select Blood Bank</string>
     <string name="select_blood_group">Select Blood Group</string>
     <string name="select_drug_store">Select Drug Store</string>
+    <string name="week1">Fresh fruits and vegetables.\n\nStarchy foods, such as rice, rotis (including mixed grain or stuffed roti), whole grain bread, pasta, and baked/boiled potatoes.\n\nFoods rich in protein, such as lean meat and chicken, eggs, pulses (such as beans and lentils) and soya nuggets.\n\nDairy foods, such as milk, cheese, cottage cheese (paneer) and curd/yoghurt</string>
+    <string name="week2">Iron capsule 200mg - 1 OD \n\nFolicacid 1000 microgram -1 OD\n\natenolol 100mg - 1 OD</string>
+    <string name="exercise">Aim for 20-60 minutes of exercise every day (yes, walking counts).\n\nAim for at least 3 hours/week of exercise to maximize benefits (being sure to include
+cardiovascular exercises such as walking, biking, or swimming).\n\nWear good supportive tennis shoes.\n\nRemember, your body is changing so your balance may not be as good, just be aware.\n\n</string>
 
 </resources>

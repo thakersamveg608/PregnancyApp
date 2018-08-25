@@ -1,21 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
     android:background="@drawable/gradient_registration">
 
     <android.support.v7.widget.CardView
         android:id="@+id/cvInfo"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:minHeight="@dimen/margin_150"
-        android:layout_marginTop="@dimen/margin_90"
+        android:layout_centerHorizontal="true"
         android:layout_marginLeft="@dimen/margin_48"
         android:layout_marginRight="@dimen/margin_48"
-        android:layout_centerHorizontal="true"
-        app:cardElevation="@dimen/margin_2"
-        app:cardCornerRadius="@dimen/margin_4">
+        android:layout_marginTop="@dimen/margin_90"
+        android:minHeight="@dimen/margin_150"
+        app:cardCornerRadius="@dimen/margin_4"
+        app:cardElevation="@dimen/margin_2">
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -26,25 +26,25 @@
                 android:id="@+id/tvName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop=   "@dimen/margin_100"
                 android:layout_centerHorizontal="true"
-                android:gravity="center"
+                android:layout_marginTop="@dimen/margin_100"
                 android:fontFamily="@font/raleway_medium"
-                android:textSize="@dimen/margin_16"
+                android:gravity="center"
+                android:text="Name : Pragati"
                 android:textColor="@color/black"
-                android:text="Name : Justin Metthiew"/>
+                android:textSize="@dimen/margin_16" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/tvName"
-                android:layout_marginTop="@dimen/margin_8"
                 android:layout_centerHorizontal="true"
-                android:gravity="center"
+                android:layout_marginTop="@dimen/margin_8"
                 android:fontFamily="@font/raleway_medium"
-                android:textSize="@dimen/margin_16"
+                android:gravity="center"
+                android:text="UUID : 181BC70NB9X50"
                 android:textColor="@color/black"
-                android:text="UUID : 181BC70NB9X50"/>
+                android:textSize="@dimen/margin_16" />
 
 
         </RelativeLayout>
@@ -55,18 +55,18 @@
         android:id="@+id/cvImage"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/margin_20"
         android:layout_centerHorizontal="true"
+        android:layout_marginTop="@dimen/margin_20"
         app:cardCornerRadius="77dp"
         app:cardElevation="@dimen/margin_4">
 
 
-            <ImageView
-                android:id="@+id/ivCustomerImage"
-                android:layout_width="@dimen/margin_150"
-                android:layout_height="@dimen/margin_150"
-                android:layout_centerHorizontal="true"
-                android:layout_centerVertical="true"/>
+        <ImageView
+            android:id="@+id/ivCustomerImage"
+            android:layout_width="@dimen/margin_150"
+            android:layout_height="@dimen/margin_150"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true" />
 
     </android.support.v7.widget.CardView>
 
@@ -74,8 +74,8 @@
         android:id="@+id/cvHealthCentres"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/margin_325"
         android:layout_centerHorizontal="true"
+        android:layout_marginTop="@dimen/margin_325"
         app:cardCornerRadius="77dp"
         app:cardElevation="@dimen/margin_4">
 
@@ -86,7 +86,7 @@
             android:layout_height="@dimen/margin_150"
             android:layout_centerHorizontal="true"
             android:layout_centerVertical="true"
-            android:scaleType="centerCrop"/>
+            android:scaleType="centerCrop" />
 
     </android.support.v7.widget.CardView>
 
@@ -94,24 +94,24 @@
         android:id="@+id/cvShop"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
         android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
         android:layout_marginBottom="@dimen/margin_64"
         android:layout_marginLeft="@dimen/margin_8"
         app:cardCornerRadius="@dimen/margin_2"
         app:cardElevation="@dimen/margin_4">
 
         <LinearLayout
-            android:orientation="horizontal"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
 
             <ImageView
                 android:id="@+id/ivShopCart"
                 android:layout_width="@dimen/margin_40"
                 android:layout_height="@dimen/margin_40"
                 android:layout_margin="@dimen/margin_8"
-                android:src="@drawable/ic_shopping_bag_solid"/>
+                android:src="@drawable/ic_shopping_bag_solid" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -120,9 +120,9 @@
                 android:layout_marginLeft="@dimen/margin_8"
                 android:layout_marginRight="@dimen/margin_8"
                 android:fontFamily="@font/raleway_medium"
+                android:text="Shop with us"
                 android:textColor="#1a237e"
-                android:textSize="@dimen/margin_16"
-                android:text="Shop with us"/>
+                android:textSize="@dimen/margin_16" />
 
         </LinearLayout>
 
@@ -132,24 +132,24 @@
         android:id="@+id/cvCustomerCare"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentRight="true"
         android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
         android:layout_marginBottom="@dimen/margin_64"
         android:layout_marginRight="@dimen/margin_8"
         app:cardCornerRadius="@dimen/margin_2"
         app:cardElevation="@dimen/margin_4">
 
         <LinearLayout
-            android:orientation="horizontal"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
 
             <ImageView
                 android:id="@+id/ivSupport"
                 android:layout_width="@dimen/margin_40"
                 android:layout_height="@dimen/margin_40"
                 android:layout_margin="@dimen/margin_8"
-                android:src="@drawable/ic_headset_solid"/>
+                android:src="@drawable/ic_headset_solid" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -157,14 +157,33 @@
                 android:layout_gravity="center_vertical"
                 android:layout_marginRight="@dimen/margin_8"
                 android:fontFamily="@font/raleway_medium"
+                android:text="Customer care"
                 android:textColor="#9b0000"
-                android:textSize="@dimen/margin_16"
-                android:text="Customer care"/>
+                android:textSize="@dimen/margin_16" />
 
         </LinearLayout>
 
     </android.support.v7.widget.CardView>
 
+    <RelativeLayout
+        android:id="@+id/rl_emergency"
+        android:layout_width="match_parent"
+        android:layout_height="42dp"
+        android:layout_marginTop="16dp"
+        android:layout_alignParentBottom="true"
+        android:background="#9b0000">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:fontFamily="@font/raleway_bold"
+            android:text="EMERGENCY"
+            android:textAllCaps="true"
+            android:textColor="@color/white"
+            android:textSize="18sp" />
+
+    </RelativeLayout>
 
 
 </RelativeLayout>

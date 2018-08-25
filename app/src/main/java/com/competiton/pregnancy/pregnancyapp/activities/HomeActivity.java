@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.support.v7.widget.CardView;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
@@ -21,6 +22,7 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
     private ImageView ivHealthCentre, ivCustomerImage;
     private CardView cvShop, cvCustomerCare, cvInfo, cvImage;
     private SharedPrefs sharedPrefs;
+    private RelativeLayout rlEmergency;
     FragmentManager fm = getSupportFragmentManager();
     ProfileFragment profileFragment = ProfileFragment.newInstance();
 
@@ -49,14 +51,16 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
         cvCustomerCare = findViewById(R.id.cvCustomerCare);
         cvInfo = findViewById(R.id.cvInfo);
         cvImage = findViewById(R.id.cvImage);
+        rlEmergency = findViewById(R.id.rl_emergency);
 
         Glide.with(this).load(R.drawable.health_centre).apply(RequestOptions.circleCropTransform()).into(ivHealthCentre);
-        Glide.with(this).load(R.drawable.ic_profile_image).apply(RequestOptions.circleCropTransform()).into(ivCustomerImage);
+        Glide.with(this).load(R.drawable.profile_pic).apply(RequestOptions.circleCropTransform()).into(ivCustomerImage);
         ivHealthCentre.setOnClickListener(this);
         cvShop.setOnClickListener(this);
         cvCustomerCare.setOnClickListener(this);
         cvImage.setOnClickListener(this);
         cvInfo.setOnClickListener(this);
+        rlEmergency.setOnClickListener(this);
     }
 
     @Override
@@ -79,6 +83,10 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
                 break;
             case R.id.cvInfo:
                 profileFragment.show(fm, "Profile Fragment");
+                break;
+            case R.id.rl_emergency:
+                Intent ii = new Intent(Intent.ACTION_DIAL, Uri.parse("tel:" + "108"));
+                startActivity(ii);
                 break;
         }
     }
